@@ -1,24 +1,63 @@
-# README
+## テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| nickname           | string | null: false               |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :members
+- has_many :items
 
-* Configuration
 
-* Database creation
+## members テーブル
 
-* Database initialization
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| name   | string     | null: false                    |
+| fixed  | integer    | null: false                    |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- has_many :posts
+- has_many :comments
 
-* Deployment instructions
+## items テーブル
 
-* ...
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| name   | string     | null: false                    |
+| price  | integer    | null: false                    |
+
+### Association
+
+- belongs_to :user
+- belongs_to :post
+
+## posts テーブル
+
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| day    | date       | null: false                    |
+| item   | references | null: false, foreign_key: true |
+| member | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :item
+- belongs_to :member
+
+## comments テーブル
+
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| text   | text       | null: false                    |
+| member | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :member
