@@ -16,10 +16,11 @@
 
 ## members テーブル
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| name   | string     | null: false                    |
-| fixed  | integer    | null: false                    |
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| name     | string     | null: false                    |
+| fixed    | integer    | null: false                    |
+| color    | integer    | null: false                    |
 
 ### Association
 
