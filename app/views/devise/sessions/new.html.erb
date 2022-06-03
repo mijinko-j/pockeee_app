@@ -1,4 +1,3 @@
-<%= render "shared/header"%>
 <h2>ログイン</h2>
 
 <%= form_with model: @user, url: user_session_path, class: 'registration-main' do |f| %>
@@ -29,5 +28,3 @@
     <%= f.submit "ログイン" %>
   </div>
 <% end %>
-
-<%= render "shared/footer"%>
