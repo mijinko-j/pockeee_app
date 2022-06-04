@@ -18,6 +18,10 @@ class MembersController < ApplicationController
     end
   end
 
+  def show
+    
+  end
+
   private
 
   def member_params
