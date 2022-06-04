@@ -19,7 +19,13 @@ class MembersController < ApplicationController
   end
 
   def show
-    
+    @member = Member.find(params[:id])
+  end
+
+  def destroy
+    @member = Member.find(params[:id])
+    @member.destroy
+    redirect_to root_path
   end
 
   private
