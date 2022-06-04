@@ -1,5 +1,6 @@
 class MembersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_member, only: [:show, :edit, :update, :destroy]
 
   def index
     @members = Member.includes(:user)
@@ -19,11 +20,20 @@ class MembersController < ApplicationController
   end
 
   def show
-    @member = Member.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @member.update(member_params)
+      redirect_to member_path(@member.id)
+    else
+      render action: :edit
+    end
   end
 
   def destroy
-    @member = Member.find(params[:id])
     @member.destroy
     redirect_to root_path
   end
@@ -32,6 +42,10 @@ class MembersController < ApplicationController
 
   def member_params
     params.require(:member).permit(:image, :name, :fixed, :color).merge(user_id: current_user.id)
+  end
+
+  def set_member
+    @member = Member.find(params[:id])
   end
 
 end

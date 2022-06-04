@@ -4,13 +4,13 @@
     <li></li>
   </ul>
   <div class="member-btn">
-        <ul class="member-btn-list">
-          <li>
-            
-          </li>
-          <li>
-            <%= link_to '削除', member_path(@member.id), method: :delete %>
-          </li>
-        </ul>
-      </div>
+    <ul class="member-btn-list">
+      <li>
+        <%= link_to 'メンバー編集(へんしゅう)', edit_member_path(@member.id), method: :get %>
+      </li>
+      <li>
+        <%= link_to 'メンバー削除(削除)', member_path(@member.id), method: :delete %>
+      </li>
+    </ul>
+  </div>
 </div>
