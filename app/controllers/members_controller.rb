@@ -4,6 +4,7 @@ class MembersController < ApplicationController
 
   def index
     @members = Member.includes(:user)
+    
   end
 
   def new
@@ -20,9 +21,15 @@ class MembersController < ApplicationController
   end
 
   def show
+    unless @member.user_id == current_user.id
+      redirect_to action: :index
+    end
   end
 
   def edit
+    unless @member.user_id == current_user.id
+      redirect_to action: :index
+    end
   end
 
   def update
