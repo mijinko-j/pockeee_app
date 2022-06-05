@@ -1,7 +1,7 @@
 <div class='contents-wrap'>
   <h2 class='page-ttl'><span class="member-ttl-name"><%= @member.name %><span class="member-ttl-name-small">さんの</span>ポッケー</span></h2>
   <ul class="member-list-wrap">
-    <li></li>
+    <li class="member-detail-img"><%= image_tag @member.image, class: "member-img" if @member.image.attached? %></li>
   </ul>
   <div class="member-btn">
     <ul class="member-btn-list">
