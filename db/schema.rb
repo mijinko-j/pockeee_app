@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2022_06_03_082146) do
   create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "fixed", null: false
-    t.integer "color", null: false
+    t.string "color", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
