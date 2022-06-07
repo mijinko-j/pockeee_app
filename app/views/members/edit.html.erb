@@ -1,6 +1,6 @@
 <div class='contents-wrap'>
   <h2 class='page-ttl'><span class="member-ttl-name"><%= @member.name %><span class="member-ttl-name-small">さんの</span>ポッケー編集</span></h2>
-  <%= form_with model: @member, class: 'member-form-wrap', local: true do |f|%>
+  <%= form_with model: @member, id: 'new-member', class: 'member-form-wrap', local: true do |f|%>
   <div class='form-wrap'>
     <div class="form-group">
       <div class='form-text-wrap'>
@@ -37,7 +37,14 @@
           <label class="form-text">画像</label>
           <span class="indispensable">必須</span>
         </div>
-        <%= f.file_field :image, id:"member-image" %>
+        <div id="previews">
+          <div class="preview">
+            <%= image_tag @member.image, class: "preview-image" if @member.image.attached? %>
+          </div>
+        </div>
+        <label class="edit-image">ファイルを選択
+          <%= f.file_field :image, id:"member-image" %>
+        </label>
       </div>
     </div>
     <div class="member-save-btn-wrap">
