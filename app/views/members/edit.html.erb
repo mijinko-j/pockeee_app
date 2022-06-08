@@ -1,0 +1,62 @@
+<div class='contents-wrap'>
+  <h2 class='page-ttl'><span class="member-ttl-name"><%= @member.name %><span class="member-ttl-name-small">さんの</span>ポッケー編集</span></h2>
+  <%= form_with model: @member, id: 'new-member', class: 'member-form-wrap', local: true do |f|%>
+  <div class='form-wrap'>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">メンバーの名前(なまえ)</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :name, class: "input-default", id:"member-name", placeholder:"ひろ・花・タックン・mikoなど" %>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">1ヶ月のおこづかい</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <div class='form-input-wrap'>
+        <%= f.text_field :fixed, class: "input-default input-custom", id:"member-fixed", placeholder:"例）300" %>
+        <span class="form-yen">円(えん)</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">カラー</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="member-color-wrap">
+        <label><%= f.radio_button :color, "#ffb2b9" %><span class="member-color-label01">ぴんく</span></label>
+        <label><%= f.radio_button :color, "#99dcff" %><span class="member-color-label02">あお</span></label>
+        <label><%= f.radio_button :color, "#B38447" %><span class="member-color-label03">ちゃいろ</span></label>
+        <label><%= f.radio_button :color, "#b2b2b2" %><span class="member-color-label04">はいいろ</span></label>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="field">
+        <div class='form-text-wrap'>
+          <label class="form-text">画像</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <div id="previews">
+          <div class="preview">
+            <%= image_tag @member.image, class: "preview-image" if @member.image.attached? %>
+          </div>
+        </div>
+        <label class="edit-image">ファイルを選択
+          <%= f.file_field :image, id:"member-image" %>
+        </label>
+      </div>
+    </div>
+    <div class="member-save-btn-wrap">
+      <%= f.submit "保存する", class: "member-save-btn" %>
+    </div>
+  </div>
+  <% end %>
+  <div class="member-btn">
+    <ul class="member-btn-list">
+      <li>
+        <%= link_to 'メンバー削除(削除)', member_path(@member.id), method: :delete %>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class='contents-wrap'>
+  <h2 class='page-ttl'><span class='member-ttl-name'><%= current_user.family_name %><span class='member-ttl-name-small'>さんちの</span>ポッケーメンバー</span></h2>
+  <ul class='member-list-wrap'>
+  <% current_user.members.each do |member| %>
+  
+    <li class='member-list' style='background-color: <%= member.color %>;'>
+      <%= link_to member_path(member.id) do %>
+      <div class='member-img-content'>
+        <%= image_tag member.image, class: 'member-img' if member.image.attached? %>
+      </div>
+      <div class='member-info'>
+        <h3 class='member-name'>
+          <%= member.name %>
+        </h3>
+      </div>
+      <% end %>
+    </li>
+  <% end %>
+    <li class='member-list' style='background-color: #ccc;'>
+      <%= link_to new_member_path do %>
+      <div class='member-img-content'>
+        <%= image_tag 'member-add.jpg' %>
+      </div>
+      <div class='member-info'>
+        <h3 class='member-name'>メンバー追加</h3>
+      </div>
+      <% end %>
+    </li>
+  </ul>
+</div>

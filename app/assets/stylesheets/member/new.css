@@ -1,0 +1,84 @@
+.member-form-wrap {
+  width: 100%;
+  min-width: 800px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 4vh 0;
+}
+
+.input-default.input-custom {
+  width: 60%;
+}
+
+.member-color-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.member-color-label {
+  margin: 0 20px 0 10px;
+}
+
+.member-color-wrap .member-color-label:last-child {
+  margin: 0 0 0 10px;
+}
+
+.member-color-wrap label {
+  text-align: center;
+}
+
+.member-color-wrap label span {
+  width: 39px;
+  height: 40px;;
+  padding: 10px;
+  display: block;
+  text-indent: -1000000px;
+}
+
+.member-color-wrap label span.member-color-label01 {
+  background: #ffb2b9;
+}
+
+.member-color-wrap label span.member-color-label02 {
+  background: #99dcff
+}
+
+.member-color-wrap label span.member-color-label03 {
+  background: #B38447
+}
+
+.member-color-wrap label span.member-color-label04 {
+  background: #b2b2b2
+}
+
+.member-save-btn {
+  width: 100%;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.preview-image {
+
+}
+
+.preview {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  margin: 4vh auto;
+}
+
+.preview .preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 8px 24px rgb(40 40 40 / 10%);
+  box-shadow: 0px 8px 24px rgb(40 40 40 / 10%);
+}

@@ -2,11 +2,12 @@
 
 ## users テーブル
 
-| Column             | Type   | Options                   |
-| ------------------ | ------ | ------------------------- |
-| family_name        | string | null: false               |
-| email              | string | null: false, unique: true |
-| encrypted_password | string | null: false               |
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| family_name        | string     | null: false                    |
+| email              | string     | null: false, unique: true      |
+| encrypted_password | string     | null: false                    |
+| user               | references | null: false, foreign_key: true |
 
 ### Association
 

@@ -14,22 +14,31 @@
  *= require_self
  */
 
+ a {
+   text-decoration: none;
+ }
  
  .contents-wrap {
   color: #333;
   width: 980px;
-  padding: 5vh 0;
+  padding: 10vh 0;
   margin: 0 auto;
 }
 
 .page-ttl {
   color: #ffb2b9;
-  font-size: 36px;
+  font-size: 30px;
   text-align: center;
-  margin-bottom: 4vh;
+  margin-bottom: 8vh;
 }
 
 .page-ttl span {
   border-bottom: 2px dotted #ffb2b9;
   padding-bottom: 1vh;
+}
+
+.member-ttl-name .member-ttl-name-small {
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: none;
 }

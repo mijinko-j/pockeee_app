@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PockeeeApp</title>
+    <title>Pockeee</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,31 @@
   </head>
 
   <body>
+    <header class='header'>
+      <div class='header-inner'>
+        <h1>pockeee</h1>
+        <div class='nav'>
+          <ul class='lists-right'>
+            <% if user_signed_in? %>
+              <li><%= link_to 'お手伝い項目登録', "#", class: "nav-list-btn" %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+            <% else %>
+              <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+              <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </header>
     <%= yield %>
+    <footer class='footer'>
+      <div class='footer-contents'>
+        <div>
+          <h2>pockeee</h2>
+          <p>pockeee(ポッケー)は、<br>まいつきの おたのしみの おこづかいと<br>がんばった おてつだいの おだちんを<br>かんりする アプリです。</p>
+        </div>
+      </div>
+      <p class='copylight'>© pockeee</p>
+    </footer>
   </body>
 </html>
