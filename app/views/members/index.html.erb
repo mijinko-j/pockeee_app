@@ -2,7 +2,6 @@
   <h2 class='page-ttl'><span class='member-ttl-name'><%= current_user.family_name %><span class='member-ttl-name-small'>さんちの</span>ポッケーメンバー</span></h2>
   <ul class='member-list-wrap'>
   <% current_user.members.each do |member| %>
-  
     <li class='member-list' style='background-color: <%= member.color %>;'>
       <%= link_to member_path(member.id) do %>
       <div class='member-img-content'>

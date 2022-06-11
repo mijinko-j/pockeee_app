@@ -1,0 +1,64 @@
+
+.item-list-wrap {
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 4vh 0;
+  margin: 0 auto;
+}
+
+.item-list-wrap tr:first-child {
+  background: #f5f5f5;
+}
+
+.item-list-wrap th,
+.item-list-wrap td {
+  text-align: center;
+  padding: 10px;
+  border: 2px dotted #ccc;
+}
+
+.item-list-price {
+  width: 120px;
+}
+
+.item-list-price span {
+  font-size: 12px;
+  padding-left: 4px;
+}
+
+.item-list-edit-btn,
+.item-list-delete-btn {
+  width: 80px;
+}
+
+.item-list-wrap td a {
+  width: 60px;
+  color: #fff;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.item-list-edit-btn a {
+  background: #ffb2b9;
+}
+
+.item-list-delete-btn a {
+  background: #99dcff;
+}
+
+.item-add-btn a {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  color: #FFF;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  background: #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 40px auto 0;
+}
