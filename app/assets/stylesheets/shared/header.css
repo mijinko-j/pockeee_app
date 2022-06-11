@@ -18,10 +18,13 @@ header {
 
 header h1 {
   display: flex;
-  color: #FFF;
   font-size: 48px;
   font-weight: bold;
   line-height: 1;
+}
+
+header h1 a {
+  color: #FFF;
 }
 
 .nav {
