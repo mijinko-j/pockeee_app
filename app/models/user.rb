@@ -6,4 +6,9 @@ class User < ApplicationRecord
 
   has_many :members
   has_many :items
+
+  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
+  validates_format_of :password, with: PASSWORD_REGEX
+  validates :family_name,        presence: true
+
 end
