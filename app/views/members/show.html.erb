@@ -5,6 +5,12 @@
   <ul class="member-list-wrap">
     <li class="member-detail-img"><%= image_tag @member.image, class: "member-img" if @member.image.attached? %></li>
   </ul>
+  <div class="posts">
+    <%= render "posts/new" %>
+  </div>
+  <div class="posts">
+    <%= render "posts/post" %>
+  </div>
   <div class="member-btn">
     <ul class="member-btn-list">
       <li>

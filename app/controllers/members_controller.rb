@@ -4,7 +4,7 @@ class MembersController < ApplicationController
 
   def index
     @members = Member.includes(:user)
-    
+    @items = Item.includes(:user)
   end
 
   def new
@@ -21,6 +21,9 @@ class MembersController < ApplicationController
   end
 
   def show
+    @items = Item.includes(:user)
+    @posts = @member.posts.includes(:user)
+    @post = Post.new
     unless @member.user_id == current_user.id
       redirect_to action: :index
     end

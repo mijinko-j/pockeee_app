@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'members#index'
-  resources :members
   resources :users
+  resources :members do
+    resources :posts
+  end
   resources :items
-
 end

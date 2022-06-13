@@ -1,0 +1,59 @@
+.post-new-form {
+  background: rgba(255, 243, 204, 0.4);
+  border-radius: 20px;
+  padding: 4vh;
+}
+
+.item-list-wrap.post-list-wrap {
+  max-width: 980px;
+  margin: 8vh 0;
+}
+
+.item-list-edit-btn.post-list-edit-btn,
+.item-list-delete-btn.post-list-delete-btn {
+  width: 120px;
+}
+
+.item-list-delete-btn.post-list-delete-btn a {
+  background: #333;
+}
+
+.post-ttl {
+  color: #ffb2b9;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin: 8vh;
+}
+
+.post-ttl span {
+  border-bottom: 2px dotted #ffb2b9;
+  padding-bottom: 1vh;
+}
+
+.post-item-list {
+  margin-right: 2vw;
+}
+
+.post-form-flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: end;
+}
+
+.post-save-btn-wrap input {
+  width: 200px;
+  color: #FFF;
+  font-size: 18px;
+  font-weight: bold;
+  background: #ffb2b9;
+  border: none;
+  border-radius: 4px;
+  padding: 6px;
+  box-shadow: 0px 5px 9px -3px rgb(0 0 0 / 10%);
+}
+
+.post-item-price-small {
+  font-size: 12px;
+}

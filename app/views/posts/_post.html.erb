@@ -1,0 +1,19 @@
+<h3 class='post-ttl' style='color: <%= @member.color %>;'><span style='border-bottom: 2px dotted <%= @member.color %>'>がんばったおてつだい</span></h3>
+<table class='item-list-wrap post-list-wrap'>
+  <tr>
+    <th>ひにち</th>
+    <th>おてつだい</th>
+    <th>きんがく</th>
+    <th>へんしゅう</th>
+    <th>さくじょ</th>
+  </tr>
+  <% @member.posts.each do |post| %>
+    <tr>
+      <td class='item-list-day'><%= post.day %></td>
+      <td class='item-list-name'><%= Item.find_by(id: post.item_id).name %></td>
+      <td class='item-list-price'><%= Item.find_by(id: post.item_id).price %></td>
+      <td class='item-list-edit-btn post-list-edit-btn'><%= link_to 'へんしゅう', edit_member_path(@member.id), style: "background: #{@member.color}", method: :get %></td>
+      <td class='item-list-delete-btn post-list-delete-btn'><%= link_to 'さくじょ', member_path(@member.id), method: :delete %></td>
+    </tr>
+  <% end %>
+</table>
