@@ -22,8 +22,10 @@ class MembersController < ApplicationController
 
   def show
     @items = Item.includes(:user)
-    @posts = @member.posts.includes(:user)
-    @post = Post.new
+    
+    
+  
+    
     unless @member.user_id == current_user.id
       redirect_to action: :index
     end

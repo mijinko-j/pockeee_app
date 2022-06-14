@@ -3,7 +3,7 @@
   <ul class='member-list-wrap'>
   <% current_user.members.each do |member| %>
     <li class='member-list' style='background-color: <%= member.color %>;'>
-      <%= link_to member_path(member.id) do %>
+      <%= link_to "members/#{member.id}/posts" do %>
       <div class='member-img-content'>
         <%= image_tag member.image, class: 'member-img' if member.image.attached? %>
       </div>

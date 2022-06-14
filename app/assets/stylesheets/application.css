@@ -25,6 +25,10 @@
   margin: 0 auto;
 }
 
+.contents-section {
+  margin-bottom: 8vh;
+}
+
 .page-ttl {
   color: #ffb2b9;
   font-size: 30px;
