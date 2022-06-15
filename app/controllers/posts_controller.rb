@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_member
   before_action :set_month
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
     @members = Member.includes(:user)
@@ -26,6 +27,23 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+   
+  end
+
+  def update
+    if @post.update(post_params)
+      redirect_to action: :index
+    else
+      render action: :edit
+    end
+  end
+
+  def destroy
+    @post.destroy
+    redirect_to action: :index
+  end
+
   private
 
   def post_params
@@ -40,6 +58,10 @@ class PostsController < ApplicationController
     @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
     @prev_month = @month.prev_month
     @next_month = @month.next_month
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 
 end

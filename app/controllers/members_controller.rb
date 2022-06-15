@@ -4,7 +4,12 @@ class MembersController < ApplicationController
 
   def index
     @members = Member.includes(:user)
-    @items = Item.includes(:user)
+  end
+
+  def show
+    unless @member.user_id == current_user.id
+      redirect_to action: :index
+    end
   end
 
   def new
@@ -20,17 +25,6 @@ class MembersController < ApplicationController
     end
   end
 
-  def show
-    @items = Item.includes(:user)
-    
-    
-  
-    
-    unless @member.user_id == current_user.id
-      redirect_to action: :index
-    end
-  end
-
   def edit
     unless @member.user_id == current_user.id
       redirect_to action: :index
@@ -39,7 +33,7 @@ class MembersController < ApplicationController
 
   def update
     if @member.update(member_params)
-      redirect_to member_path(@member.id)
+      redirect_to root_path
     else
       render action: :edit
     end
@@ -53,7 +47,7 @@ class MembersController < ApplicationController
   private
 
   def member_params
-    params.require(:member).permit(:image, :name, :fixed, :color).merge(user_id: current_user.id)
+    params.require(:member).permit(:name, :fixed, :color, :image).merge(user_id: current_user.id)
   end
 
   def set_member

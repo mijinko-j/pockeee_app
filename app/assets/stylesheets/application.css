@@ -26,7 +26,11 @@
 }
 
 .contents-section {
-  margin-bottom: 8vh;
+  margin-bottom: 10vh;
+}
+
+.contents-wrap .contents-section:last-child {
+  margin-bottom: 0;
 }
 
 .page-ttl {
