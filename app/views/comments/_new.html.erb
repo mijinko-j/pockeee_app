@@ -1,0 +1,17 @@
+<section id='comment-new' class='contents-section'>
+    <h3 class='post-ttl' style='color: <%= @member.color %>;'>
+      <span class="member-ttl-name" style='border-bottom: 2px dotted <%= @member.color %>'>コメント</span>
+    </h3>
+    <div class="comment-form">
+      <% if user_signed_in? %>
+        <%= form_with model: [@member, @comment], id: "comment-form" do |f| %>
+          <div class="comment-member-wrap">
+            <label class="form-text">コメントするひと</label>
+            <%= f.collection_select :comment_member, current_user.members.all, :id, :name, include_blank: "選択して下さい" %>
+          </div>
+          <%= f.text_area :comment , class: "comment-text"%>
+          <%= f.submit "コメントをする", class: "comment-submit" %>
+        <% end %>
+      <% end %>
+    </div>
+  </section>
