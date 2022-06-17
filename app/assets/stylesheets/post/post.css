@@ -1,0 +1,212 @@
+.post-ttl-wrap {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.post-ttl-img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.post-ttl-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0px 5px 9px -3px rgb(0 0 0 / 10%);
+}
+
+.post-ttl-wrap .page-ttl {
+  margin-bottom: 0;
+}
+
+.post-sum-wrap {
+  color: #FFF;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 8vh 0 4vh;
+}
+
+.post-sum-wrap h3 {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.post-sum-inner {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  
+}
+
+.post-sum-sum {
+  margin: 0 100px;
+}
+
+.post-sum-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.post-sum-item.post-sum-fixed::before {
+  position: absolute;
+  content: "+";
+  display: inline-block;
+  color: #FFF;
+  font-size: 21px;
+  top: calc(50% - 15px);
+  right: -55px;
+}
+
+.post-sum-item.post-sum-sum::before {
+  position: absolute;
+  content: "=";
+  display: inline-block;
+  color: #FFF;
+  font-size: 21px;
+  top: calc(50% - 15px);
+  right: -55px;
+}
+
+.post-sum-item h4 {
+  color: #FFF;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.post-sum-item p {
+  width: 100px;
+  height: 100px;
+  font-size: 12px;
+  background: #FFF;
+  border-radius: 50%;
+  padding: 25px 0;
+  margin: 0 auto;
+}
+
+.post-sum-item.post-sum-total p {
+  width: 130px;
+  height: 130px;
+  padding: 30px 0;
+}
+
+.post-sum-item p span {
+  font-size: 18px;
+}
+
+.post-sum-item.post-sum-total p span {
+  font-size: 30px;
+}
+
+
+
+
+
+.post-new-form {
+  background: rgba(255, 243, 204, 0.4);
+  border-radius: 20px;
+  padding: 4vh;
+}
+
+.post-new-form .form-group {
+  margin-bottom: 4vh;
+}
+
+.item-list-wrap.post-list-wrap {
+  max-width: 980px;
+  margin-top: 2vh;
+}
+
+.item-list-edit-btn.post-list-edit-btn,
+.item-list-delete-btn.post-list-delete-btn {
+  width: 120px;
+}
+
+.item-list-delete-btn.post-list-delete-btn a {
+  background: #333;
+}
+
+.post-ttl {
+  color: #ffb2b9;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin: 8vh 0;
+}
+
+.post-ttl span {
+  border-bottom: 2px dotted #ffb2b9;
+  padding-bottom: 1vh;
+}
+
+.post-item-list {
+  margin-right: 2vw;
+}
+
+.post-form-flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: end;
+}
+
+.post-save-btn-wrap input {
+  width: 200px;
+  color: #FFF;
+  font-size: 18px;
+  font-weight: bold;
+  background: #ffb2b9;
+  border: none;
+  border-radius: 4px;
+  padding: 6px;
+  box-shadow: 0px 5px 9px -3px rgb(0 0 0 / 10%);
+}
+
+.post-item-price-small {
+  font-size: 12px;
+}
+
+.posts-month-wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.post-member-wrap {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-weight: bold;
+}
+
+.post-member-list {
+  width: calc(50% - 40px);
+}
+
+.post-member-wrap .member-detail-img {
+  margin: 0 40px 0 0;
+}
+
+.post-member-list-fixed span {
+  font-size: 21px;
+}
+
+.post-member-list-btn {
+  margin-top: 40px;
+}
+
+.post-member-list a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0px 5px 9px -3px rgb(0 0 0 / 10%);
+  padding: 20px;
+}

@@ -25,9 +25,18 @@
   margin: 0 auto;
 }
 
+.contents-section {
+  margin-bottom: 10vh;
+}
+
+.contents-wrap .contents-section:last-child {
+  margin-bottom: 0;
+}
+
 .page-ttl {
   color: #ffb2b9;
   font-size: 30px;
+  font-weight: bold;
   text-align: center;
   margin-bottom: 8vh;
 }

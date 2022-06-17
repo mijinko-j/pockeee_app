@@ -7,7 +7,6 @@
 | family_name        | string     | null: false                    |
 | email              | string     | null: false, unique: true      |
 | encrypted_password | string     | null: false                    |
-| user               | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -22,6 +21,7 @@
 | name     | string     | null: false                    |
 | fixed    | integer    | null: false                    |
 | color    | integer    | null: false                    |
+| user     | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -34,6 +34,7 @@
 | ------ | ---------- | ------------------------------ |
 | name   | string     | null: false                    |
 | price  | integer    | null: false                    |
+| user   | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -46,11 +47,13 @@
 | ------ | ---------- | ------------------------------ |
 | day    | date       | null: false                    |
 | item   | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
 | member | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :item
+- belongs_to :user
 - belongs_to :member
 
 ## comments テーブル
