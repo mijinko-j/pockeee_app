@@ -16,15 +16,14 @@ class PostsController < ApplicationController
     @items = Item.includes(:user)
     @post = Post.new
     @posts = @member.posts.includes(:user).order('day DESC').where(day: @month.all_month)
+    current_user.members
     @posts_sum = 0
       @posts.each do |post| 
         @posts_sum += Item.find_by(id: post.item_id).price
       end
       @posts_sum_total = @member.fixed + @posts_sum
-    
-
     unless @member.user_id == current_user.id
-      redirect_to action: :index
+      redirect_to root_path
     end
   end
 
@@ -42,7 +41,9 @@ class PostsController < ApplicationController
   end
 
   def edit
-   
+    unless @member.user_id == current_user.id
+      redirect_to root_path
+    end
   end
 
   def update
