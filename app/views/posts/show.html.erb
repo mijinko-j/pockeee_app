@@ -29,11 +29,11 @@
       </div>
     </div>
     <ul class='posts-month-wrap'>
-      <li><%= link_to "< #{@prev_month.month}月のポッケー" ,member_posts_path(month:@prev_month), style: "color: #{@member.color};" %></li>
+      <li><%= link_to "< #{@prev_month.month}月のポッケー" ,member_post_path(month:@prev_month), style: "color: #{@member.color};" %></li>
       <% if Date.today.month == (@next_month - 1.month).month %>
         <li></li>
       <% else %>
-        <li><%= link_to "#{(@next_month).month}月のポッケー >" ,member_posts_path(month:@next_month), style: "color: #{@member.color};" %></li>
+        <li><%= link_to "#{(@next_month).month}月のポッケー >" ,member_post_path(month:@next_month), style: "color: #{@member.color};" %></li>
       <% end %>
     </ul>
     
@@ -50,8 +50,8 @@
           <td class='item-list-day'><%= post.day %></td>
           <td class='item-list-name'><%= Item.find_by(id: post.item_id).name %></td>
           <td class='item-list-price'><%= Item.find_by(id: post.item_id).price %></td>
-          <td class='item-list-edit-btn post-list-edit-btn'><%= link_to 'へんしゅう', "posts/#{post.id}/edit", method: :get ,style: "background: #{@member.color};" %></td>
-          <td class='item-list-delete-btn post-list-delete-btn'><%= link_to 'さくじょ', "posts/#{post.id}", method: :delete %></td>
+          <td class='item-list-edit-btn post-list-edit-btn'><%= link_to 'へんしゅう', "#{post.id}/edit", method: :get ,style: "background: #{@member.color};" %></td>
+          <td class='item-list-delete-btn post-list-delete-btn'><%= link_to 'さくじょ', "#{post.id}", method: :delete %></td>
         </tr>
       <% end %>
     </table>
