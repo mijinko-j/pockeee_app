@@ -107,10 +107,12 @@
 
 
 
-
+#post-new {
+  background: rgba(255, 243, 204, 0.4);
+}
 
 .post-new-form {
-  background: rgba(255, 243, 204, 0.4);
+  background: #FFF;
   border-radius: 20px;
   padding: 4vh;
 }
@@ -138,7 +140,7 @@
   font-size: 24px;
   font-weight: bold;
   text-align: center;
-  margin: 8vh 0;
+  margin-bottom: 8vh;
 }
 
 .post-ttl span {

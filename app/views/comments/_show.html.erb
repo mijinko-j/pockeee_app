@@ -1,0 +1,33 @@
+<h3 class='post-ttl' style='color: <%= @member.color %>;'>
+  <span class="member-ttl-name" style='border-bottom: 2px dotted <%= @member.color %>'>コメント(さいしん5けん)</span>
+</h3>
+<ul id="comments">
+<% @comments.each do |comment| %>
+  <li class="comment">
+    <%= link_to member_post_path(comment.comment_member), class: 'comment-member-link'  do %>
+      <div class='comment-img'>
+        <%= image_tag Member.find_by(id: comment.comment_member).image %>
+      </div>
+      <p class="comment-name" style='color: <%= Member.find_by(id: comment.comment_member).color %>;'><%= Member.find_by(id: comment.comment_member).name %></p>
+    <% end %>
+    <p class="comment-date" style='color: <%= Member.find_by(id: comment.comment_member).color %>;'><%= comment.created_at.strftime('%Y.%m.%d') %><br><%= comment.created_at.strftime('%H:%M:%S') %></p>
+    <p class="comment-text" style='color: <%= Member.find_by(id: comment.comment_member).color %>;'><%= comment.comment%></p>
+  </li>
+<% end %>
+  <li class="comment comment-pockeee">
+    <div class='comment-img'>
+      <%= image_tag 'pockeee.png' %>
+    </div>
+    <p class="comment-name">ポッケー</p>
+    <p class="comment-date"><%= @member.created_at.strftime('%Y.%m.%d') %><br><%= @member.created_at.strftime('%H:%M:%S') %></p>
+    <p class="comment-text">おうちの おてつだいを おうえんするよ！がんばってね！</p>
+  </li>
+  <li class="comment comment-pockeee">
+    <div class='comment-img'>
+      <%= image_tag 'pockeee.png' %>
+    </div>
+    <p class="comment-name">ポッケー</p>
+    <p class="comment-date"><%= @member.created_at.strftime('%Y.%m.%d') %><br><%= @member.created_at.strftime('%H:%M:%S') %></p>
+    <p class="comment-text">ポッケーへようこそ</p>
+  </li>
+</ul>

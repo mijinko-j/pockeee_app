@@ -12,6 +12,8 @@
 
 - has_many :members
 - has_many :items
+- has_many :posts
+- has_many :comments
 
 
 ## members テーブル
@@ -25,6 +27,7 @@
 
 ### Association
 
+- belongs_to :user
 - has_many :posts
 - has_many :comments
 
@@ -39,7 +42,7 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :post
+- has_many :posts
 
 ## posts テーブル
 
@@ -61,8 +64,10 @@
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | text   | text       | null: false                    |
+| user   | references | null: false, foreign_key: true |
 | member | references | null: false, foreign_key: true |
 
 ### Association
 
+- belongs_to :user
 - belongs_to :member

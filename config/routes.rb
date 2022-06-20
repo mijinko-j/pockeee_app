@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :members do
     resources :posts
+    resources :comments, only: [:index, :create] 
   end
   resources :items
 end
