@@ -1,32 +1,34 @@
 <section id='post-new' class='contents-section'>
-  <h3 class='post-ttl' style='color: <%= @member.color %>;'><span style='border-bottom: 2px dotted <%= @member.color %>'>おてつだいをとうろくする</span></h3>
-  <%= form_with model: [@member, @post], class: 'form post-new-form', local: true do |f| %>
-    <div class='form-wrap'>
-      <div class="form-group">
-        <div class='form-text-wrap'>
-          <label class="form-text" style='color: <%= @member.color %>;'>おてつだいしたこと</label>
-        </div>
-        <div>
-        <% current_user.items.each do |item| %>
-          <label class='post-item-list'>
-            <%= f.radio_button :item_id, item.id %>
-              <span class='post-item-name'><%= item.name %></span>
-              <span class='post-item-price'><%= item.price %><span class='post-item-price-small'>えん</span></span>
-          </label>
-        <% end %>
-        </div>
-      </div>
-      <div class='post-form-flex'>
-        <div class='form-day'>
+  <div class="contents-section-inner">
+    <h3 class='post-ttl' style='color: <%= @member.color %>;'><span style='border-bottom: 2px dotted <%= @member.color %>'>おてつだいをとうろくする</span></h3>
+    <%= form_with model: [@member, @post], class: 'form post-new-form', local: true do |f| %>
+      <div class='form-wrap'>
+        <div class="form-group">
           <div class='form-text-wrap'>
-            <label class="form-text" style='color: <%= @member.color %>;'>おてつだいをしたひ</label>
+            <label class="form-text" style='color: <%= @member.color %>;'>おてつだいしたこと</label>
           </div>
-          <%= f.date_field(:day,{class:"day"}) %>
+          <div>
+          <% current_user.items.each do |item| %>
+            <label class='post-item-list'>
+              <%= f.radio_button :item_id, item.id %>
+                <span class='post-item-name'><%= item.name %></span>
+                <span class='post-item-price'><%= item.price %><span class='post-item-price-small'>えん</span></span>
+            </label>
+          <% end %>
+          </div>
         </div>
-        <div class="post-save-btn-wrap">
-          <%= f.submit "とうろくする", class: "post-save-btn", style: "background: #{@member.color}" %>
+        <div class='post-form-flex'>
+          <div class='form-day'>
+            <div class='form-text-wrap'>
+              <label class="form-text" style='color: <%= @member.color %>;'>おてつだいをしたひ</label>
+            </div>
+            <%= f.date_field(:day,{class:"day"}) %>
+          </div>
+          <div class="post-save-btn-wrap">
+            <%= f.submit "とうろくする", class: "post-save-btn", style: "background: #{@member.color}" %>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </section>

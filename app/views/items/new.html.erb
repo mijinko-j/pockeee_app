@@ -1,27 +1,31 @@
-<div class='contents-wrap'>
-  <h1 class='page-ttl'><span>おてつだい登録<span></h1>
-  <%= form_with model: @item, url: items_path, id: 'new-item', class: 'item-form-wrap', local: true do |f|%>
-  <div class='form-wrap'>
-    <div class="form-group">
-      <div class='form-text-wrap'>
-        <label class="form-text">おてつだい項目名</label>
-        <span class="indispensable">必須</span>
+<div class='contents'>
+  <section class="contents-section">
+    <div class="contents-section-inner">
+      <h1 class='page-ttl'><span>おてつだい登録<span></h1>
+      <%= form_with model: @item, url: items_path, id: 'new-item', class: 'item-form-wrap', local: true do |f|%>
+      <div class='form-wrap'>
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">おてつだい項目名</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :name, class: "input-default", id:"item-name", placeholder:"そうじき・おさらふきなど" %>
+        </div>
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">金額(半角)</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div class='form-input-wrap'>
+            <%= f.text_field :price, class: "input-default input-custom", id:"item-price", placeholder:"例）300" %>
+            <span class="form-yen">円(えん)</span>
+          </div>
+        </div>
+        <div class="item-save-btn-wrap">
+          <%= f.submit "保存する", class: "item-save-btn" %>
+        </div>
       </div>
-      <%= f.text_field :name, class: "input-default", id:"item-name", placeholder:"そうじき・おさらふきなど" %>
+      <% end %>
     </div>
-    <div class="form-group">
-      <div class='form-text-wrap'>
-        <label class="form-text">金額(半角)</label>
-        <span class="indispensable">必須</span>
-      </div>
-      <div class='form-input-wrap'>
-        <%= f.text_field :price, class: "input-default input-custom", id:"item-price", placeholder:"例）300" %>
-        <span class="form-yen">円(えん)</span>
-      </div>
-    </div>
-    <div class="item-save-btn-wrap">
-      <%= f.submit "保存する", class: "item-save-btn" %>
-    </div>
-  </div>
-  <% end %>
+  </section>
 </div>

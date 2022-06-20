@@ -20,13 +20,12 @@
  
  .contents-wrap {
   color: #333;
+}
+
+.contents-section-inner {
   width: 980px;
   padding: 10vh 0;
   margin: 0 auto;
-}
-
-.contents-section {
-  margin-bottom: 10vh;
 }
 
 .contents-wrap .contents-section:last-child {

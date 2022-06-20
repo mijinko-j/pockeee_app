@@ -1,9 +1,15 @@
 class CommentsController < ApplicationController
+  def index
+    @member = Member.find(params[:member_id])
+    @comments = @member.comments.includes(:user).order('id DESC')
+    @comment = Comment.new
+  end
+
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      redirect_to root_path
-    end
+      redirect_to request.referer
+      end
   end
 
   private

@@ -1,97 +1,97 @@
-<div class='contents-wrap'>
+<div class='contents posts-contents-wrap'>
   <section id='post-list' class='contents-section' >
-    <div class='post-ttl-wrap'>
-      <div class="post-ttl-img">
-      <%= link_to member_path(@member.id) do %>
-        <%= image_tag @member.image %>
-      <% end %>
+    <div class="contents-section-inner">
+      <div class='post-ttl-wrap'>
+        <div class="post-ttl-img">
+        <%= link_to member_path(@member.id) do %>
+          <%= image_tag @member.image %>
+        <% end %>
+        </div>
+        <h2 class='page-ttl' style='color: <%= @member.color %>;'>
+          <span class="member-ttl-name" style='border-bottom: 2px dotted <%= @member.color %>'><%= @member.name %>のポッケー</span>
+        </h2>
       </div>
-      <h2 class='page-ttl' style='color: <%= @member.color %>;'>
-        <span class="member-ttl-name" style='border-bottom: 2px dotted <%= @member.color %>'><%= @member.name %>のポッケー</span>
-      </h2>
-    </div>
-    <div class='post-sum-wrap' style='background: <%= @member.color %>;'>
-      <h3><span class="member-ttl-name" %>\ <%= (@prev_month + 1.month).month %>月のポッケー /</span></h3>
-      <div class='post-sum-inner'>
-        <div class='post-sum-item post-sum-fixed'>
-          <h4>まいつきの<br>おこづかい</h4>
-          <p style='color: <%= @member.color %>;'><span><%= @member.fixed %></span><br>えん</p>
-        </div>
-        <div class='post-sum-item post-sum-sum'>
-          
-          <h4>おてつだいの<br>おだちん</h4>
-          <p style='color: <%= @member.color %>;'><span><%= @posts_sum %></span><br>えん</p>
-        </div>
-        <div class='post-sum-item post-sum-total'>
-          <h4>ごうけい</h4>
-          <p style='color: <%= @member.color %>;'><span><%= @posts_sum_total %></span><br>えん</p>
+      <div class='post-sum-wrap' style='background: <%= @member.color %>;'>
+        <h3><span class="member-ttl-name" %>\ <%= (@prev_month + 1.month).month %>月のポッケー /</span></h3>
+        <div class='post-sum-inner'>
+          <div class='post-sum-item post-sum-fixed'>
+            <h4>まいつきの<br>おこづかい</h4>
+            <p style='color: <%= @member.color %>;'><span><%= @member.fixed %></span><br>えん</p>
+          </div>
+          <div class='post-sum-item post-sum-sum'>
+            
+            <h4>おてつだいの<br>おだちん</h4>
+            <p style='color: <%= @member.color %>;'><span><%= @posts_sum %></span><br>えん</p>
+          </div>
+          <div class='post-sum-item post-sum-total'>
+            <h4>ごうけい</h4>
+            <p style='color: <%= @member.color %>;'><span><%= @posts_sum_total %></span><br>えん</p>
+          </div>
         </div>
       </div>
-    </div>
-    <ul class='posts-month-wrap'>
-      <li><%= link_to "< #{@prev_month.month}月のポッケー" ,member_post_path(month:@prev_month), style: "color: #{@member.color};" %></li>
-      <% if Date.today.month == (@next_month - 1.month).month %>
-        <li></li>
-      <% else %>
-        <li><%= link_to "#{(@next_month).month}月のポッケー >" ,member_post_path(month:@next_month), style: "color: #{@member.color};" %></li>
-      <% end %>
-    </ul>
-    
-    <table class='item-list-wrap post-list-wrap'>
-      <tr>
-        <th>ひにち</th>
-        <th>おてつだい</th>
-        <th>きんがく</th>
-        <th>へんしゅう</th>
-        <th>さくじょ</th>
-      </tr>
-      <% @posts.each do |post| %>
+      <ul class='posts-month-wrap'>
+        <li><%= link_to "< #{@prev_month.month}月のポッケー" ,member_post_path(month:@prev_month), style: "color: #{@member.color};" %></li>
+        <% if Date.today.month == (@next_month - 1.month).month %>
+          <li></li>
+        <% else %>
+          <li><%= link_to "#{(@next_month).month}月のポッケー >" ,member_post_path(month:@next_month), style: "color: #{@member.color};" %></li>
+        <% end %>
+      </ul>
+      
+      <table class='item-list-wrap post-list-wrap'>
         <tr>
-          <td class='item-list-day'><%= post.day %></td>
-          <td class='item-list-name'><%= Item.find_by(id: post.item_id).name %></td>
-          <td class='item-list-price'><%= Item.find_by(id: post.item_id).price %></td>
-          <td class='item-list-edit-btn post-list-edit-btn'><%= link_to 'へんしゅう', "#{post.id}/edit", method: :get ,style: "background: #{@member.color};" %></td>
-          <td class='item-list-delete-btn post-list-delete-btn'><%= link_to 'さくじょ', "#{post.id}", method: :delete %></td>
+          <th>ひにち</th>
+          <th>おてつだい</th>
+          <th>きんがく</th>
+          <th>へんしゅう</th>
+          <th>さくじょ</th>
         </tr>
-      <% end %>
-    </table>
-    
+        <% if @posts.present? %>
+        <% @posts.each do |post| %>
+          <tr>
+            <td class='item-list-day'><%= post.day %></td>
+            <td class='item-list-name'><%= Item.find_by(id: post.item_id).name %></td>
+            <td class='item-list-price'><%= Item.find_by(id: post.item_id).price %></td>
+            <td class='item-list-edit-btn post-list-edit-btn'><%= link_to 'へんしゅう', "#{post.id}/edit", method: :get ,style: "background: #{@member.color};" %></td>
+            <td class='item-list-delete-btn post-list-delete-btn'><%= link_to 'さくじょ', "#{post.id}", method: :delete, data: {confirm: "本当に削除しますか?(ほんとうにさくじょしますか？)"} %></td>
+          </tr>
+        <% end %>
+        <% else %>
+        <tr>
+          <th>-</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+        <% end %>
+      </table>
+    </div>
   </section>
   <%= render "new" %>
-  <%= render "comments/new" %>
-  <section id='post-member' class='contents-section'>
-    <div id="comments">
-    <h4>＜コメント一覧＞</h4>
-      <% @member.comments.each do |comment| %>
-        <div class="comment">
-          <%= link_to member_post_path(comment.comment_member), class: 'comment-member-link'  do %>
-            <div class='comment-img'>
-              <%= image_tag Member.find_by(id: comment.comment_member).image %>
-            </div>
-            <p><%= Member.find_by(id: comment.comment_member).name %></p>
-          <% end %>
-          <p><%= comment.created_at.strftime('%Y/%m/%d') %></p>
-          <p><%= comment.comment%></p>
-        </div>
-      <% end %>
-    </div>
-  </section>
-  <section id='post-member' class='contents-section'>
-    <h3 class='post-ttl' style='color: <%= @member.color %>;'>
-      <span class="member-ttl-name" style='border-bottom: 2px dotted <%= @member.color %>'><%= @member.name %><span class="member-ttl-name-small">さん</span></span>
-    </h3>
-    <div class='post-member-wrap'>
-      <div class="member-detail-img">
-        <%= image_tag @member.image, class: 'member-img' %>
+  <section id="post-comments" class="contents-section">
+    <div class="contents-section-inner">
+      <%= render "comments/show" %>
+      <div class="comment_more_btn">
+        <%= link_to 'コメントをかく・もっとみる', member_comments_path ,style: "background: #{@member.color};" %>
       </div>
-      <ul class="post-member-list">
-        <li class='post-member-list-fixed' style='color: <%= @member.color %>;'>まいつきのおこづかい : <span><%= @member.fixed %></span>えん</li>
-        <li class='post-member-list-btn'><%= link_to 'メンバーへんしゅう', edit_member_path(@member.id), style: "color: #{@member.color}; border: 2px solid #{@member.color};", method: :get %></li>
-        <li class='post-member-list-btn'><%= link_to 'メンバーさくじょ', member_path(@member.id), style: "color: #{@member.color}; border: 2px solid #{@member.color};", method: :delete %></li>
-    </ul>
     </div>
   </section>
-  
-
-
+  <section id='post-member' class='contents-section'>
+    <div class="contents-section-inner">
+      <h3 class='post-ttl' style='color: <%= @member.color %>;'>
+        <span class="member-ttl-name" style='border-bottom: 2px dotted <%= @member.color %>'><%= @member.name %><span class="member-ttl-name-small">さん</span></span>
+      </h3>
+      <div class='post-member-wrap'>
+        <div class="member-detail-img">
+          <%= image_tag @member.image, class: 'member-img' %>
+        </div>
+        <ul class="post-member-list">
+          <li class='post-member-list-fixed' style='color: <%= @member.color %>;'>まいつきのおこづかい : <span><%= @member.fixed %></span>えん</li>
+          <li class='post-member-list-btn'><%= link_to 'メンバーへんしゅう', edit_member_path(@member.id), style: "color: #{@member.color}; border: 2px solid #{@member.color};", method: :get %></li>
+          <li class='post-member-list-btn'><%= link_to 'メンバーさくじょ', member_path(@member.id), style: "color: #{@member.color}; border: 2px solid #{@member.color};", method: :delete, data: {confirm: "本当に削除しますか?(ほんとうにさくじょしますか？)"} %></li>
+      </ul>
+      </div>
+    </div>
+  </section>
 </div>

@@ -33,7 +33,7 @@ class MembersController < ApplicationController
 
   def update
     if @member.update(member_params)
-      redirect_to root_path
+      redirect_to member_post_path(@member.id)
     else
       render action: :edit
     end
