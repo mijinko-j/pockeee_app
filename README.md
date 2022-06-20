@@ -58,14 +58,16 @@
 - belongs_to :item
 - belongs_to :user
 - belongs_to :member
+- has_many :comments
 
 ## comments テーブル
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| text   | text       | null: false                    |
-| user   | references | null: false, foreign_key: true |
-| member | references | null: false, foreign_key: true |
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| text           | comment    | null: false                    |
+| comment_member | string     | null: false                    |
+| user           | references | null: false, foreign_key: true |
+| member         | references | null: false, foreign_key: true |
 
 ### Association
 
