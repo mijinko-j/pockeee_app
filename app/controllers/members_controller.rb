@@ -1,6 +1,6 @@
 class MembersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_member, only: [:show, :edit, :update, :destroy]
+  before_action :set_member, only: [:show, :edit, :update]
 
   def index
     @members = Member.includes(:user)
@@ -37,11 +37,6 @@ class MembersController < ApplicationController
     else
       render action: :edit
     end
-  end
-
-  def destroy
-    @member.destroy
-    redirect_to root_path
   end
 
   private

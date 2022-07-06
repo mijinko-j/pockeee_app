@@ -148,6 +148,12 @@
   padding-bottom: 1vh;
 }
 
+.post-new-list {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
 .post-item-list {
   margin-right: 2vw;
 }

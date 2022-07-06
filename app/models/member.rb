@@ -1,6 +1,6 @@
 class Member < ApplicationRecord
   belongs_to :user
-  has_many :posts, dependent: :destroy
+  has_many :posts
   has_many :comments
   has_one_attached :image
 

@@ -7,14 +7,12 @@
           <th>項目名</th>
           <th>金額</th>
           <th>編集</th>
-          <th>削除</th>
         </tr>
         <% current_user.items.each do |item| %>
         <tr>
           <td class='item-list-name'><%= item.name %></td>
           <td class='item-list-price'><%= item.price %><span>円</span></td>
           <td class='item-list-edit-btn'><%= link_to '編集', edit_item_path(item.id), method: :get %></td>
-          <td class='item-list-delete-btn'><%= link_to '削除', item_path(item.id), method: :delete, data: {confirm: "本当に削除しますか?"} %></td>
         </tr>
         <% end %>
       </table>

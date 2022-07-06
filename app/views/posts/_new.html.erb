@@ -7,7 +7,7 @@
           <div class='form-text-wrap'>
             <label class="form-text" style='color: <%= @member.color %>;'>おてつだいしたこと</label>
           </div>
-          <div>
+          <div class="post-new-list">
           <% current_user.items.each do |item| %>
             <label class='post-item-list'>
               <%= f.radio_button :item_id, item.id %>

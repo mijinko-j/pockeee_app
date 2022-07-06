@@ -34,7 +34,9 @@ class PostsController < ApplicationController
 
   def create
     @post = @member.posts.new(post_params)
-    @post.save
+    if @post.save
+      redirect_to request.referer
+    end
   end
 
   def edit

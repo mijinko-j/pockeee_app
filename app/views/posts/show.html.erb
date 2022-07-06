@@ -2,11 +2,7 @@
   <section id='post-list' class='contents-section' >
     <div class="contents-section-inner">
       <div class='post-ttl-wrap'>
-        <div class="post-ttl-img">
-        <%= link_to member_path(@member.id) do %>
-          <%= image_tag @member.image %>
-        <% end %>
-        </div>
+        <div class="post-ttl-img"><%= image_tag @member.image %></div>
         <h2 class='page-ttl' style='color: <%= @member.color %>;'>
           <span class="member-ttl-name" style='border-bottom: 2px dotted <%= @member.color %>'><%= @member.name %>のポッケー</span>
         </h2>
@@ -79,17 +75,19 @@
   </section>
   <section id='post-member' class='contents-section'>
     <div class="contents-section-inner">
-      <h3 class='post-ttl' style='color: <%= @member.color %>;'>
-        <span class="member-ttl-name" style='border-bottom: 2px dotted <%= @member.color %>'><%= @member.name %><span class="member-ttl-name-small">さん</span></span>
-      </h3>
+      
       <div class='post-member-wrap'>
         <div class="member-detail-img">
           <%= image_tag @member.image, class: 'member-img' %>
         </div>
         <ul class="post-member-list">
+          <li>
+            <h3 class='post-ttl' style='color: <%= @member.color %>;'>
+              <span class="member-ttl-name" style='border-bottom: 2px dotted <%= @member.color %>'><%= @member.name %><span class="member-ttl-name-small">さん</span></span>
+            </h3>
+          </li>
           <li class='post-member-list-fixed' style='color: <%= @member.color %>;'>まいつきのおこづかい : <span><%= @member.fixed %></span>えん</li>
           <li class='post-member-list-btn'><%= link_to 'メンバーへんしゅう', edit_member_path(@member.id), style: "color: #{@member.color}; border: 2px solid #{@member.color};", method: :get %></li>
-          <li class='post-member-list-btn'><%= link_to 'メンバーさくじょ', member_path(@member.id), style: "color: #{@member.color}; border: 2px solid #{@member.color};", method: :delete, data: {confirm: "本当に削除しますか?(ほんとうにさくじょしますか？)"} %></li>
       </ul>
       </div>
     </div>
