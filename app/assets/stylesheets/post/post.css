@@ -156,6 +156,7 @@
 
 .post-item-list {
   margin-right: 2vw;
+  white-space: nowrap;
 }
 
 .post-form-flex {
@@ -195,7 +196,7 @@
 }
 
 .post-member-list {
-  width: calc(50% - 40px);
+  width: 300px;
 }
 
 .post-member-wrap .member-detail-img {
@@ -214,7 +215,7 @@
   display: block;
   width: 100%;
   text-align: center;
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: 0px 5px 9px -3px rgba(0,0,0,0.1);
   padding: 20px;
 }
