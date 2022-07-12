@@ -64,7 +64,7 @@
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
-| text           | comment    | null: false                    |
+| comment        | text       | null: false                    |
 | comment_member | string     | null: false                    |
 | user           | references | null: false, foreign_key: true |
 | member         | references | null: false, foreign_key: true |
