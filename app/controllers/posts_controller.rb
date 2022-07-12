@@ -16,11 +16,7 @@ class PostsController < ApplicationController
     @items = Item.includes(:user)
     @post = Post.new
     @posts = @member.posts.includes(:user).order('day DESC').where(day: @month.all_month)
-    @posts_sum = 0
-    @posts.each do |post|
-      @posts_sum += Item.find_by(id: post.item_id).price
-    end
-    @posts_sum_total = @member.fixed + @posts_sum
+    posts_sum
     @comments = @member.comments.includes(:user).order('id DESC').limit(5)
     
     unless @member.user_id == current_user.id
@@ -76,6 +72,14 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def posts_sum
+    @posts_sum = 0
+    @posts.each do |post|
+      @posts_sum += Item.find_by(id: post.item_id).price
+    end
+    @posts_sum_total = @member.fixed + @posts_sum
   end
   
 end
