@@ -66,3 +66,5 @@ gem 'rename'
 gem 'pry-rails'
 
 gem 'data-confirm-modal'
+
+gem "aws-sdk-s3", require: false
