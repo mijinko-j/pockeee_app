@@ -1,75 +1,96 @@
-## テーブル設計
+# アプリケーション名
+pockeee(ポッケー)
 
-## users テーブル
+<br>
 
-| Column             | Type       | Options                        |
-| ------------------ | ---------- | ------------------------------ |
-| family_name        | string     | null: false                    |
-| email              | string     | null: false, unique: true      |
-| encrypted_password | string     | null: false                    |
+# アプリケーション概要
+子どもの『毎月のおこづかい』と、『毎日のお手伝いのお駄賃』を管理するアプリ。
 
-### Association
+<br>
 
-- has_many :members
-- has_many :items
-- has_many :posts
-- has_many :comments
+# URL
+https://pockeee.herokuapp.com
+
+<br>
+
+# テスト用アカウント
+- Basic認証ID : pockeeetest
+- Basic認証パスワード : 202206pockeee
+- メールアドレス : test01@com
+- パシワード : a123456
+
+<br>
+
+# 利用方法
+## 頑張ったお手伝いを登録
+1. トップページからユーザーの新規登録を行う
+2. メンバー一覧ページから、メンバー登録を行う
+3. メンバーページから、お手伝いした内容とお手伝いをした日付を選択し、登録する
+
+<br>
+
+## コメントで感謝を伝える
+1. メンバーページでその月のお手伝いを確認する
+2. 感謝を伝えたいお手伝いがあれば、「コメントをかく・もっとみる」ボタンをクリックし、コメント投稿ページへ遷移
+3. コメント記入者とコメントを入力する（コメント記入者は同じユーザー内のメンバーから選択できる）
+
+<br>
+
+# アプリケーションを作成した背景
+洗濯物畳んでくれたら10円、お皿洗ってくれたら10円など、子どもがお手伝いをするとお駄賃をあげるご家庭も多いと思います。　　
+
+我が家ではカレンダーにお手伝いした内容を記入し、月末に計算。「毎月の決まったおこづかい」＋「お手伝いのお駄賃」を渡していました。　　
+
+その中で、こんな問題が起きていました。
+- お手伝いしたけどカレンダーに書き忘れてしまい、お手伝いした分のお駄賃がしっかりもらえない
+- やっただけの金額がもらえず、モチベーションが下がりお手伝いに楽しく取りかかれない
+- いやいやではなく、楽しくお手伝いに取り組んで欲しいのに、モチベーションが低く、せっかく手伝ってくれたのに…親も微妙な気持ちになる
+- カレンダーがごちゃごちゃになる
+
+<br>
+
+そこで、計算がすぐにできない小さな子どもでも、金額がわかることでモチベーションのアップと維持ができ、子ども自ら楽しくお手伝いに取り組むことができる。　　
+
+また、親がコメントで感謝を伝えることで、 働くことの喜びも体験できるのではないかと仮説を立て、アプリケーションを開発することにしました。
 
 
-## members テーブル
+<br>
 
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| name     | string     | null: false                    |
-| fixed    | integer    | null: false                    |
-| color    | integer    | null: false                    |
-| user     | references | null: false, foreign_key: true |
+# 洗い出した要件
+https://docs.google.com/spreadsheets/d/1VQU7KKmHHmvWk1ERwfYBAgsmbmQXTgzg1zxeoy_oBOI/edit?usp=sharing
 
-### Association
 
-- belongs_to :user
-- has_many :posts
-- has_many :comments
+<br>
 
-## items テーブル
+# 実装した機能についての画像やGIFおよびその説明
+[![Image from Gyazo](https://i.gyazo.com/eda78cd6fa809655a06d8b2beb60d760.gif)](https://gyazo.com/eda78cd6fa809655a06d8b2beb60d760)
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| name   | string     | null: false                    |
-| price  | integer    | null: false                    |
-| user   | references | null: false, foreign_key: true |
+[![Image from Gyazo](https://i.gyazo.com/b5062dc602952106fba581696cb6ff4d.gif)](https://gyazo.com/b5062dc602952106fba581696cb6ff4d)
 
-### Association
+<br>
 
-- belongs_to :user
-- has_many :posts
+# データベース設計
+[![Image from Gyazo](https://i.gyazo.com/6218e30be74247dfa0f741d7c509b4d6.png)](https://gyazo.com/6218e30be74247dfa0f741d7c509b4d6)
 
-## posts テーブル
+<br>
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| day    | date       | null: false                    |
-| item   | references | null: false, foreign_key: true |
-| user   | references | null: false, foreign_key: true |
-| member | references | null: false, foreign_key: true |
+# 画面遷移図
+[![Image from Gyazo](https://i.gyazo.com/327eed34703fe669046e4071fdb2834b.png)](https://gyazo.com/327eed34703fe669046e4071fdb2834b)
 
-### Association
+<br>
 
-- belongs_to :item
-- belongs_to :user
-- belongs_to :member
-- has_many :comments
+# 開発環境
+- フロントエンド
+- バックエンド
+- インフラ
+- テキストエディタ
+- タスク管理
 
-## comments テーブル
+<br>
 
-| Column         | Type       | Options                        |
-| -------------- | ---------- | ------------------------------ |
-| comment        | text       | null: false                    |
-| comment_member | string     | null: false                    |
-| user           | references | null: false, foreign_key: true |
-| member         | references | null: false, foreign_key: true |
+# 工夫したポイント
+小さな子どもが操作することを想定し直感で操作できるように、お手伝い投稿一覧のページをメンバーページとし、子どもが使用する機能はメンバーページから全て遷移できるようにしました。
 
-### Association
+お手伝いを登録する際は、親が登録しておいたお手伝いの一覧から、ラジオボタンで選択できるようにし、小さな子どもでもカンタンに登録できるようにしました。
 
-- belongs_to :user
-- belongs_to :member
+子どもはメールアドレスを持っていない場合が多いため、家族用のタブレットで入力することを想定し、親がユーザー登録をしたユーザーの中にメンバー（子どもや家族）を登録できるようにしました。
