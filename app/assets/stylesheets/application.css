@@ -14,11 +14,15 @@
  *= require_self
  */
 
- a {
+body {
+  font-family: 'M PLUS 1p', sans-serif;
+}
+
+a {
    text-decoration: none;
  }
  
- .contents-wrap {
+.contents-wrap {
   color: #333;
 }
 
