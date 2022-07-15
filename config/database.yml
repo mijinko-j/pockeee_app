@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: pockeee_production
-  username: pockeee
-  password: <%= ENV['pockeee_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
